@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-// Database connection
 $host = 'localhost';
-$db = 'database1'; // Replace with your database name
-$user = 'root'; // Replace with your MySQL username
-$pass = ''; // Replace with your MySQL password
+$db = 'database1'; 
+$user = 'root'; 
+$pass = ''; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -32,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->fetch();
 
             if ($password === $stored_password) {
-                // Set session variables
                 $_SESSION['user_id'] = $id;
                 $_SESSION['email'] = $email;
                 header("Location: dashboard.php");
